@@ -1,5 +1,3 @@
-python
-Copy code
 import random
 
 def generate_passwords(num_passwords, password_length):
