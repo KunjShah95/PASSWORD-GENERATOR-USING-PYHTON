@@ -1,19 +1,28 @@
+python
+Copy code
 import random
 
-print('Welcone To Your PAssword Generator')
+def generate_passwords(num_passwords, password_length):
+    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*().,?0123456789'
+    passwords = []
 
-chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*().,?0123456789'
+    for _ in range(num_passwords):
+        password = ''.join(random.choice(chars) for _ in range(password_length))
+        passwords.append(password)
+    
+    return passwords
 
-number = input('Amount of passwords to generate: ')
-number = int(number)
+print('Welcome To Your Password Generator')
 
-length = input('Input your password length: ')
-length = int(length)
+# Input for number of passwords to generate
+number = int(input('Amount of passwords to generate: '))
 
-print('\nhere are your passwords:')
+# Input for length of each password
+length = int(input('Input your password length: '))
 
-for pwd in range(number):
-    passwords = ''
-    for c in range(length):
-        passwords += random.choice(chars) 
-        print(passwords)
+print('\nHere are your passwords:')
+
+# Generate and print passwords
+passwords = generate_passwords(number, length)
+for pwd in passwords:
+    print(pwd)
